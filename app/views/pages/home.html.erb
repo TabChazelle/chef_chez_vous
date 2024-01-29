@@ -2,12 +2,14 @@
 <html>
   <head>
     <title>Chef Chez Vous !</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="<%= asset_path('styles.css') %>">
     <script src="script.js"></script>
   </head>
   <body>
     <header>
-      <!-- Logo here ? -->
+      <div class="logo-container">
+        <h1><img src="<%= asset_path('ccvLogo.png') %>" alt="Logo" class="logo"></h1>
+       </div>
       <h1>The chef booking service</h1>
       <nav>
         <ul>
