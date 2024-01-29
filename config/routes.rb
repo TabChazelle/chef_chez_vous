@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  get 'profiles/show'
+  get 'profiles/edit'
+  get 'profiles/update'
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  get 'bookings/new'
+  get 'bookings/create'
+  get 'bookings/index'
+  get 'bookings/edit'
+  get 'bookings/update'
+  get 'bookings/destroy'
+  get 'users/new'
+  get 'users/create'
+  devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
