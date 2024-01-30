@@ -1,3 +1,4 @@
+<!-- app/views/shared/_navbar.html.erb -->
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
@@ -8,29 +9,39 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <%# if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
+    <div class="d-flex flex-grow-1 mx-4">
+      <%= form_with(url: "#", local: true, method: :get, class: "input-group") do %>
+        <%= search_field_tag :query, params[:query], placeholder: "Search by name or specialty", aria_label: "Search", class: "form-control" %>
+        <%= button_tag type: 'submit', class: 'btn btn-outline-primary' do %>
+          Search
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <%= link_to "Home", "#", class: "nav-item nav-link active" %>
+          <%= link_to "Messages", "#", class: "nav-item nav-link" %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "nav-item nav-link" %>
+        <% end %>
+      </ul>
+
+
+
+      <% if user_signed_in? %>
+        <ul class="navbar-nav">
           <li class="nav-item dropdown">
-            <%= image_tag "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/319794_v9_bb.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag(current_user.profile_picture, class: "nav-link dropdown-toggle avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }) if current_user.profile_picture.present? %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+              <%= link_to "Profile", "#", class: "dropdown-item" %>
+              <%= link_to "Settings", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", method: :delete %>
             </div>
           </li>
-        <%# else %>
-          <!--li class="nav-item"-->
-            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <!--/li-->
-        <%# end %>
-      </ul>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>
