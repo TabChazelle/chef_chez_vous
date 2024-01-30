@@ -12,7 +12,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     render :profile
   end
-  
+
+  def destroy
+    @user.destroy
+    redirect_to users_url, notice: 'User was successfully destroyed.'
+  end
+
   # def my_profile
   #   @user = current_user
   #   render :show
