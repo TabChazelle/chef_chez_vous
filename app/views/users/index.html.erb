@@ -1,0 +1,18 @@
+<h1>User Profiles</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <h2><strong>User Name:</strong><%= user.email %></h2>
+
+      <% if user.chef %>
+        <p><strong>Chef Name:</strong> <%= user.chef.name %>
+        <strong>Chef Specialty:</strong> <%= user.chef.specialty %>
+        <strong>Chef Description:</strong> <%= user.chef.description %>
+        </p>
+      <% else %>
+        <p>This user is not a chef.</p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
