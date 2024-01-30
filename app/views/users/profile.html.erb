@@ -1,0 +1,25 @@
+<h1>User Profile</h1>
+
+<p>Name: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
+
+<!-- Add more profile information here -->
+<div>
+  <h2>Profile Picture</h2>
+  <img src="<%= @user.profile_picture_url %>" alt="Profile Picture">
+</div>
+
+<div>
+  <h2>Biography</h2>
+  <p><%= @user.biography %></p>
+</div>
+
+<!-- Chef Specialties -->
+<div>
+  <h2>Chef Specialties</h2>
+  <ul>
+    <% @user.specialties.each do |specialty| %>
+      <li><%= specialty %></li>
+    <% end %>
+  </ul>
+</div>
