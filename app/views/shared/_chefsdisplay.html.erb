@@ -1,0 +1,11 @@
+  <div>
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="bookmark-text">
+    <%# Is it @bookmarks or @lists!?  %>
+    <%= bookmark.movie.title %> - <%= bookmark.comment %>
+    <br>
+    <%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Go ahead, delete it. Just like my hopes and dreams....' }, class: 'btn btn-danger btn-sm delete-button' %>
+    </div>
+
+  <% end %>
+</div>

@@ -6,6 +6,7 @@
     <script src="script.js"></script>
   </head>
   <body>
+    <%= render "shared/navbar" %>
     <header>
       <div class="logo-container">
         <h1><img src="<%= asset_path('ccvLogo.png') %>" alt="Logo" class="logo"></h1>
@@ -24,6 +25,11 @@
       <section id="intro">
         <h2>Welcome to Chef Chez Vous</h2>
         <p>Find a chef! Book them! Enjoy the food!</p>
+
+        <%= yield %>
+
+        <%= render "shared/footer" %>
+
         <a href="/" class="cta-button">Browse the Chefs</a>
       </section>
 
