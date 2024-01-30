@@ -20,8 +20,8 @@
     <div class="row">
   <% @chefs.each do |chef| %>
     <div class="col-md-4">
-      <%= cl_image_tag(chef.photo.key, height: 300, width: 400, crop: :fill) unless chef.photo.key.nil? %>
-      <div class="custom-link" style="text-align: center;">
+    <%= cl_image_tag(chef.photo, height: 300, width: 400, crop: :fill) unless chef.photo.nil? %>
+    <div class="custom-link" style="text-align: center;">
         <%= link_to chef.name, chef_path(chef) %>
         <p><%= chef.specialty %></p>
       </div>
