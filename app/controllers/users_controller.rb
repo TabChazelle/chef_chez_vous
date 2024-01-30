@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[show edit update destroy profile]
 
   def index
     @users = User.all
@@ -8,10 +8,15 @@ class UsersController < ApplicationController
   def show
   end
 
-  def my_profile
-    @user = current_user
-    render :show
+  def profile
+    @user = User.find(params[:id])
+    render :profile
   end
+  
+  # def my_profile
+  #   @user = current_user
+  #   render :show
+  # end
 
   def edit
     @user = current_user
