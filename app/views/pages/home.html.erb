@@ -7,28 +7,28 @@
   </head>
   <body>
     <%= render "shared/navbar" %>
-    <header>
-      <div class="logo-container">
-        <h1><img src="<%= asset_path('ccvLogo.png') %>" alt="Logo" class="logo"></h1>
-       </div>
-      <h1>The chef booking service</h1>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/">Find My Chefs</a></li>
-          <li><a href="/">My Bookings</a></li>
-        </ul>
-      </nav>
-    </header>
 
     <main>
-      <section id="intro">
-        <h2>Welcome to Chef Chez Vous</h2>
-        <p>Find a chef! Book them! Enjoy the food!</p>
 
-        <%= yield %>
-        <%# <%= render "shared/chefsdisplay" %>
-        <%# Above will render the chefsdisplay partial with the iteration. %>
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.sudouest.fr/13349336/1000x500/m6-0057633-0008.jpg?v=1670842498);">
+      <div class="container">
+        <h1>Welcome to Chef chez Vous!</h1>
+        <p>Book your private chef as never as easy.</p>
+      </div>
+    </div>
+
+    <div class="row">
+  <% @chefs.each do |chef| %>
+    <div class="col-md-4">
+      <%= cl_image_tag(chef.photo.key, height: 300, width: 400, crop: :fill) unless chef.photo.key.nil? %>
+      <div class="custom-link" style="text-align: center;">
+        <%= link_to chef.name, chef_path(chef) %>
+        <p><%= chef.specialty %></p>
+      </div>
+    </div>
+  <% end %>
+    </div>
+
 
         <%= render "shared/footer" %>
 
