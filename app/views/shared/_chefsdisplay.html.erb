@@ -1,11 +1,13 @@
+<%# starting the iteration to display all the chefs onto the home page directly similar to airbnb %>
+<%# WIP %>
+
   <div>
-  <% @list.bookmarks.each do |bookmark| %>
-    <div class="bookmark-text">
-    <%# Is it @bookmarks or @lists!?  %>
-    <%= bookmark.movie.title %> - <%= bookmark.comment %>
+  <% @instancedvariable.method.each do |chef| %>
+    <div class="form-iteration">
+    <%= chef.method %> - <%= chef.bio %>
     <br>
-    <%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Go ahead, delete it. Just like my hopes and dreams....' }, class: 'btn btn-danger btn-sm delete-button' %>
     </div>
 
   <% end %>
+  
 </div>
