@@ -17,6 +17,8 @@ class ChefsController < ApplicationController
   end
 
   def show
+    @chef = Chef.find(chef_params)
+    @bookings = @chef.bookings
   end
 
   def edit
