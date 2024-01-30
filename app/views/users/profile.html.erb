@@ -13,13 +13,3 @@
   <h2>Biography</h2>
   <p><%= @user.biography %></p>
 </div>
-
-<!-- Chef Specialties -->
-<div>
-  <h2>Chef Specialties</h2>
-  <ul>
-    <% @user.specialties.each do |specialty| %>
-      <li><%= specialty %></li>
-    <% end %>
-  </ul>
-</div>
