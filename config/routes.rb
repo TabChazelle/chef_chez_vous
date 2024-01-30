@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   # Possibly needing to add resources for users if we are going to have a profile page.
   # We do not need if it is only used for devise authentication.
   resources :users, only: [:show, :edit, :update]
-
+  resources :users do
+    get 'profile', on: :member
+  end
   # Defines the root path route ("/")
   # root "posts#index"
 end
