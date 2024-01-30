@@ -1,2 +1,22 @@
-<h1>Chefs#show</h1>
+
+<h1>Chef Profile - <%= @chef.name %></h1>
+<p><strong>Specialty:</strong> <%= @chef.specialty %>
+<p><strong>Description:</strong> <%= @chef.description %></p></p>
+
+<h2>Bookings from Users:</h2>
+
+<% if @bookings.any? %>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <li>
+        <p><strong>User:</strong> <%= booking.user.email %></p>
+
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No bookings from users yet.</p>
+<% end %>
+
+
 <p>Find me in app/views/chefs/show.html.erb</p>
