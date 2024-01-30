@@ -1,7 +1,7 @@
 <h1> My Bookings</h1>
-    <% if upcoming_bookings.any? %>
+    <% if bookings.any? %>
       <ul>
-        <% upcoming_bookings.each do |booking| %>
+        <% bookings.each do |booking| %>
           <li>
             <%= booking.chef_name %> - <%= booking.date %> at <%= booking.time %>
           </li>
