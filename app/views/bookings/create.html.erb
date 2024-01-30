@@ -1,2 +1,27 @@
 <h1>Bookings Create</h1>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Booking</title>
+    <link rel="stylesheet" href="<%= asset_path('styles.css') %>">
+</head>
+<body>
+    <h1>Create a Booking</h1>
+    <form action="/bookings" method="post">
+        <!-- MORE INPUT FIELDS FOR INFO? -->
+
+        <br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+        <br>
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <!-- MORE INPUT? -->
+        <button type="submit">Create Booking</button>
+    </form>
+</body>
+</html>
