@@ -10,4 +10,12 @@
 
 Chef.create(name: "Gordon Ramsay", specialty: "Being a bastard", description: "Makes a surprisingly bad cheese toastie")
 
-User.create(email: "joebloggs@gmail.com")
+100.times do |i|
+  User.create(
+    email: Faker::Internet.unique.email,
+    password: Faker::Internet.password(min_length: 10),
+    name: Faker::Name.name,
+    profile_picture_url: "https://source.unsplash.com/random/#{i}",
+    biography: Faker::Lorem.paragraph
+  )
+end
