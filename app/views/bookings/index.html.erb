@@ -1,12 +1,22 @@
 <h1> My Bookings</h1>
-
-<ul>
-  <% @bookings.each do |booking| %>
-    <li><%= link_to booking.created_at, bookings_index_path(booking) %></li>
-  <% end %>
-</ul>
+    <% if upcoming_bookings.any? %>
+      <ul>
+        <% upcoming_bookings.each do |booking| %>
+          <li>
+            <%= booking.chef_id %> - <%= booking.date %> at <%= booking.time %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No upcoming bookings.</p>
+    <% end %>
 
 <p>
 <%= link_to "Create New Booking", bookings_create_path %>
 </p>
 <p>Find me in app/views/bookings/index.html.erb</p>
+
+
+<h1>Your Bookings for <%= chef_id %></h1>
+    <p>You have <%= user_bookings_count %> <%= pluralize(user_bookings_count, 'booking') %> with <%= chef_id %>.</p>
+
