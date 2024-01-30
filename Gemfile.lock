@@ -320,7 +320,7 @@ DEPENDENCIES
   bootsnap
   bootstrap (~> 5.2)
   capybara
-  cloudinary (~> 1.22.0)
+  cloudinary
   debug
   devise
   dotenv-rails
