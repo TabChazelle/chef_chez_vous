@@ -8,7 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-
 Chef.create(name: "Gordon Ramsay", specialty: "Being a bastard", description: "Makes a surprisingly bad cheese toastie")
 
 User.create(email: "joebloggs@gmail.com")
