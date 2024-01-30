@@ -1,9 +1,9 @@
 <h1> My Bookings</h1>
-    <% if upcoming_bookings.any? %>
+    <% if bookings.any? %>
       <ul>
-        <% upcoming_bookings.each do |booking| %>
+        <% bookings.each do |booking| %>
           <li>
-            <%= booking.chef_name %> - <%= booking.date %> at <%= booking.time %>
+            <%= booking.chef_id %> - <%= booking.start_date %> at <%= booking.end_date %>
           </li>
         <% end %>
       </ul>
@@ -17,5 +17,5 @@
 <p>Find me in app/views/bookings/index.html.erb</p>
 
 
-<h1>Your Bookings for <%= chef_name %></h1>
-    <p>You have <%= user_bookings_count %> <%= pluralize(user_bookings_count, 'booking') %> with <%= chef_name %>.</p>
+<h1>Your Bookings for <%= chef.name %></h1>
+    <p>You have <%= user_bookings_count %> <%= pluralize(user_bookings_count, 'booking') %> with <%= chef.name %>.</p>
