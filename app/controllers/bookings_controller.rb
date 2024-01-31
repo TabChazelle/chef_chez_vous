@@ -36,8 +36,12 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking.destroy
-    redirect_to bookings_path, notice: "Booking has been cancelled ❌"
+    if @booking.destroy
+      redirect_to bookings_path, notice: "Booking has been cancelled ❌"
+    else
+      flash[:error] = "Error: Booking could not be cancelled."
+      redirect_to bookings_path
+    end
   end
 
   private
