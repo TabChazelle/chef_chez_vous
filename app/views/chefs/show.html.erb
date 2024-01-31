@@ -20,3 +20,6 @@
   <p>No bookings from users yet.</p>
 <% end %>
 <%= link_to "Back to Homepage", root_path, class: "btn btn-primary" %>
+<%= link_to "Book This Chef", new_booking_path(chef_id: @chef.id), class: "btn btn-primary" %>
+
+
