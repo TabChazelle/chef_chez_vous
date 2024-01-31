@@ -10,3 +10,29 @@
 .chef-card {
   margin-bottom: 2rem; // Ajoute une marge en bas pour aérer entre les lignes
 }
+
+.chef-price {
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+.chef-specialty {
+  background-color: #969696;
+  border-radius: 8px;
+  padding: 5px 10px;
+  display: inline-block;
+}
+
+.chef-name {
+  color: black;
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
