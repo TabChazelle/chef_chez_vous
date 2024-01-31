@@ -2,16 +2,8 @@ class ChefsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_chef, only: [:show, :edit, :update]
 
-  def index
-    @chefs = Chef.limit(5)
-  end
-
   def new
     @chef = Chef.new
-  end
-
-  def index
-    @chefs = Chef.limit(25)
   end
 
   def create
