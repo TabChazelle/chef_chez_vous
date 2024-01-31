@@ -10,6 +10,10 @@ class ChefsController < ApplicationController
     @chef = Chef.new
   end
 
+  def index
+    @chefs = Chef.limit(25)
+  end
+
   def create
     @chef = Chef.new(chef_params)
     @chef.user = current_user
