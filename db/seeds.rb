@@ -40,3 +40,13 @@ end
     chef_id: Chef.order(Arel.sql('RANDOM()')).first.id
   )
 end
+
+Chef.all.each do |chef|
+  3.times do
+    Review.create(
+      chef_id: chef.id,
+      user_id: User.order(Arel.sql('RANDOM()')).first.id,
+      content: Faker::Restaurant.review
+    )
+  end
+end
