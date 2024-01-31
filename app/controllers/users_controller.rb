@@ -23,6 +23,16 @@ class UsersController < ApplicationController
   #   render :show
   # end
 
+  def toggle_chef
+    @user = current_user
+    if @user
+      @user.update(chef: !@user.chef) # Toggle the chef status
+      redirect_to @user, notice: "Chef status updated successfully."
+    else
+      redirect_to root_path, alert: "You must be logged in to perform this action."
+    end
+  end
+
   def edit
     @user = current_user
   end

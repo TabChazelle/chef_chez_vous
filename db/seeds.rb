@@ -8,14 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-100.times do
-  Chef.create(
-    name: Faker::Name.name,
-    specialty: Faker::Food.dish,
-    description: Faker::Lorem.paragraph,
-    user_id: User.order(Arel.sql('RANDOM()')).first.id
-  )
-end
 
 100.times do |i|
   User.create(
@@ -23,6 +15,17 @@ end
     password: Faker::Internet.password(min_length: 10),
     name: Faker::Name.name,
     profile_picture_url: "https://source.unsplash.com/random/#{i}",
-    biography: Faker::Lorem.paragraph
+    biography: Faker::Lorem.paragraph,
+    chef: false
+  )
+end
+
+
+100.times do
+  Chef.create(
+    name: Faker::Name.name,
+    specialty: Faker::Food.dish,
+    description: Faker::Lorem.paragraph,
+    user_id: User.order(Arel.sql('RANDOM()')).first.id
   )
 end

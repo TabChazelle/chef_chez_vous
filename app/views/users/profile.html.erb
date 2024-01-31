@@ -9,7 +9,20 @@
   <img src="<%= @user.profile_picture_url %>" alt="Profile Picture">
 </div>
 
-<div>
+
+
+<%= form_with(model: @user, url: toggle_chef_user_path(@user), method: :patch, local: true) do |form| %>
+  <% if @user.chef? %>
+    <%= form.submit "Remove Chef Status", class: "btn btn-danger" %>
+  <% else %>
+    <%= form.submit "Become a Chef", class: "btn btn-success" %>
+  <% end %>
+<% end %>
+
+<% if @user.chef? %>
+  <div>
   <h2>Biography</h2>
   <p><%= @user.biography %></p>
 </div>
+
+<% end %>

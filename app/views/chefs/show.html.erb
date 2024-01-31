@@ -1,5 +1,7 @@
+<p>Find me in app/views/chefs/show.html.erb</p>
 
 <h1>Chef Profile - <%= @chef.name %></h1>
+<%= cl_image_tag(@chef.photo, height: 300, width: 400, crop: :fill) unless @chef.photo.nil? %>
 <p><strong>Specialty:</strong> <%= @chef.specialty %>
 <p><strong>Description:</strong> <%= @chef.description %></p></p>
 
@@ -17,6 +19,4 @@
 <% else %>
   <p>No bookings from users yet.</p>
 <% end %>
-
-
-<p>Find me in app/views/chefs/show.html.erb</p>
+<%= link_to "Back to Homepage", root_path, class: "btn btn-primary" %>
