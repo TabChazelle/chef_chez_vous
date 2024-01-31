@@ -27,6 +27,7 @@
             <% end %>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <%= link_to "Profile", profile_user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "My Bookings", bookings_path(current_user), class: "dropdown-item" %>
               <%= link_to "Messages", "#", class: "dropdown-item" %>
             </div>
           </li>
