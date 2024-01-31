@@ -24,7 +24,8 @@ end
     name: Faker::Name.name,
     specialty: Faker::Food.dish,
     description: Faker::Lorem.paragraph,
-    user_id: User.order(Arel.sql('RANDOM()')).first.id
+    user_id: User.order(Arel.sql('RANDOM()')).first.id,
+    price_per_day: Faker::Number.decimal(l_digits: 2) # add this line
   )
 end
 
