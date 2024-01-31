@@ -33,7 +33,7 @@
       <% if user_signed_in? %>
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
-            <%= image_tag(current_user.profile_picture, class: "nav-link dropdown-toggle avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }) if current_user.profile_picture.present? %>
+            <%= image_tag(current_user.profile_picture_url, class: "nav-link dropdown-toggle avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }) if current_user.profile_picture_url.present? %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", "#", class: "dropdown-item" %>
               <%= link_to "Settings", "#", class: "dropdown-item" %>
