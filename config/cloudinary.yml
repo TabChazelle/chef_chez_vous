@@ -1,5 +1,5 @@
 development:
-  cloud_name: "drjevvphk"
-  api_key: "679879674794139"
-  api_secret: "***************************"
+  cloud_name: <%= ENV['CLOUDINARY_CLOUD_NAME'] %>
+  api_key: <%= ENV['CLOUDINARY_API_KEY'] %>
+  api_secret: <%= ENV['CLOUDINARY_API_SECRET'] %>
   secure: true
