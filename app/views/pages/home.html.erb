@@ -6,39 +6,35 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <%= render "shared/navbar" %>
-
     <main>
+      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.sudouest.fr/13349336/1000x500/m6-0057633-0008.jpg?v=1670842498);">
+        <div class="container">
+          <h1>Welcome to Chef chez Vous!</h1>
+          <p>Booking your private chef has never been as easy</p>
+        </div>
+      </div>
 
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.sudouest.fr/13349336/1000x500/m6-0057633-0008.jpg?v=1670842498);">
+      <div class="container my-4">
+        <h2 class="text-left">Chefs in the spotlight</h2>
+      </div>
+
       <div class="container">
-        <h1>Welcome to Chef chez Vous!</h1>
-        <p>Book your private chef as never as easy.</p>
+        <div class="row justify-content-center">
+          <% @chefs.each do |chef| %>
+            <div class="col-md-4 text-center chef-card">
+              <%= link_to chef_path(chef) do %>
+                <%= cl_image_tag(chef.photo, height: 300, width: 400, crop: :fill, class: "chef-image rounded-circle") unless chef.photo.nil? %>
+                <h4 class="chef-name"><%= chef.name %></h4>
+              <% end %>
+              <p class="chef-specialty"><%= chef.specialty %></p>
+            </div>
+          <% end %>
+        </div>
+        <div class="text-center my-4">
+          <%= link_to 'Discover more chefs', chefs_path, class: 'btn btn-primary' %>
+        </div>
       </div>
-    </div>
-
-    <div class="row">
-  <% @chefs.each do |chef| %>
-    <div class="col-md-4">
-    <%= cl_image_tag(chef.photo, height: 300, width: 400, crop: :fill) unless chef.photo.nil? %>
-    <div class="custom-link" style="text-align: center;">
-        <%= link_to chef.name, chef_path(chef) %>
-        <p><%= chef.specialty %></p>
-      </div>
-    </div>
-  <% end %>
-    </div>
-
-
-        <%= render "shared/footer" %>
-
-        <a href="/" class="cta-button">Browse the Chefs</a>
-      </section>
-
     </main>
 
-    <footer>
-      <p>&copy; 2024 Chef Chez Vous by the Weese team for Le Wagon.</p>
-    </footer>
   </body>
 </html>
