@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
   before_action :set_booking, only: %i[update show edit destroy]
   before_action :set_user, only: [:create]
 
@@ -7,10 +8,11 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @chef = Chef.find(params[:booking][:chef_id])
     @booking = @chef.bookings.new(booking_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to bookings_path, notice: "Booking was successfull!👍"
+      redirect_to bookings_path, notice: "Booking was successful!👍"
     else
       render :new
     end
@@ -29,9 +31,9 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to bookings_path, notice: "Booking was successfully updated!👍"
+      redirect_to bookings_path(@booking), notice: "Booking was successfully updated!👍"
     else
-      render :new
+      render :edit
     end
   end
 
@@ -55,6 +57,10 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :time, :number_of_guests, :special_requests)
+    params.require(:booking).permit(:start_date, :end_date, :chef_id)
+  end
+
+  def set_user
+    @user = current_user
   end
 end
