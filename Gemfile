@@ -8,7 +8,7 @@ ruby "3.1.2"
 # Adding faker for seed tests
 gem 'faker'
 
-# Cloudinary for image upload
+# Cloudinary for image uploads
 gem 'cloudinary'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
