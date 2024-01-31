@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:update, :destroy]
+  before_action :set_booking, only: %i[update show edit destroy]
   before_action :set_user, only: [:create]
 
   def new
+    @booking = Booking.new
   end
 
   def create
@@ -20,10 +21,10 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
   end
 
   def edit
+    @chef = @booking.chef
   end
 
   def update
