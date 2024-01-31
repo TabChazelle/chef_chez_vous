@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @chefs = Chef.all
+    @chefs = Chef.limit(24)
   end
 end

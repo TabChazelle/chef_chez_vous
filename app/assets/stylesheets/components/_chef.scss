@@ -1,0 +1,12 @@
+.chef-image {
+  width: 150px; /* ou une autre taille selon votre design */
+  height: 150px; /* assurez-vous que la hauteur et la largeur sont égales pour un cercle parfait */
+  border-radius: 50%; /* cela rendra l'image ronde */
+  object-fit: cover; /* cela va couper l'image pour qu'elle remplisse le cercle */
+  display: block; /* ceci est nécessaire pour centrer correctement l'image avec margin auto */
+  margin: auto; /* cela centre l'image horizontalement dans la colonne */
+}
+
+.chef-card {
+  margin-bottom: 2rem; // Ajoute une marge en bas pour aérer entre les lignes
+}
