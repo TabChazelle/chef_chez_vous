@@ -2,9 +2,11 @@
 
     <% if @bookings.any? %>
       <ul>
-        <% bookings.each do |booking| %>
+        <% @bookings.each do |booking| %>
           <li>
             <%= booking.chef_id %> - <%= booking.start_date %> at <%= booking.end_date %>
+            <%= link_to 'View Details', booking_path(booking), class: 'btn btn-primary' %>
+
           </li>
         <% end %>
       </ul>
@@ -13,6 +15,8 @@
     <% end %>
 
 
-<%= link_to "Create New Booking", bookings_path(@booking) %>
+<%= link_to "Create New Booking", new_booking_path %>
+
+
 
 <p>Find me in app/views/bookings/index.html.erb</p>

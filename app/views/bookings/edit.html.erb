@@ -1,2 +1,12 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<h1>Bookings Update</h1>
+
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :start_date, label: 'Begin' %>
+  <%= f.input :end_date, label: 'End' %>
+  <%= f.input :chef_id, label: 'Chef' %>
+  <%= f.submit 'Update Booking', class: 'btn btn-secondary btn-lg' %>
+  <% end %>
+
+<%= link_to 'Back to My Bookings', booking_path(@booking) %>
+
+
