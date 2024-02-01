@@ -11,9 +11,9 @@
             <%# Chef's name %>
             <h4 class="chef-name"><%= chef.name %></h4>
             <%# Chef's specialty %>
-            <p class="chef-specialty"><strong>Cuisine: </strong><%= chef.specialty %></p>
+            <p class="chef-specialty"><strong>Cuisine Type: </strong><%= chef.specialty %></p>
             <%# Chef's price per day %>
-            <p class="chef-price"><%= number_to_currency(chef.price_per_day, locale: :fr) %> per day</p>
+            <p class="chef-price"><%= number_to_currency(chef.price_per_day, unit: "€") %> per day</p>
             <%# Placeholder for chef's rating, should be replaced with dynamic rating system %>
             <div class="chef-rating">
               <%# <span class="stars">★★★★☆</span> <!-- Replace with dynamic rating system --> We can add this back once we have a dynamic star rating%>

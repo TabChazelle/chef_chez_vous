@@ -7,6 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+CUISINES = ["Italian dishes", "French cuisines", "Mexican foods", "Japanese sushis", "Indian curries", "Chinese meals", "Thai foods", "Spanish tapas", "Greek meals", "American burgers", "British roasts", "German sausages", "Brazilian barbecues", "Argentinian steaks", "Vietnamese phos", "Korean barbecues", "Turkish kebabs", "Lebanese mezzes", "Ethiopian injeras", "Moroccan tagines", "Russian pelmenis", "Polish pierogis", "Swedish meatballs", "Cuban sandwiches", "Jamaican jerk chickens", "Peruvian ceviches", "Canadian poutines", "Belgian waffles", "Dutch cheeses", "Australian barbecues", "New Zealand lamb dishes", "South African boboties", "Egyptian ful medames", "Israeli falafels", "Iranian kebabs", "Pakistani biryanis", "Bangladeshi pithas", "Nepalese momos", "Sri Lankan hoppers", "Indonesian satays"]
 
 Booking.destroy_all
 Review.destroy_all
@@ -14,7 +15,7 @@ Chef.destroy_all
 User.destroy_all
 
 25.times do |i|
-  Faker::Config.locale = 'fr'
+  Faker::Config.locale = 'it'
   User.create(
     email: Faker::Internet.unique.email,
     password: Faker::Internet.password(min_length: 10),
@@ -27,10 +28,10 @@ User.destroy_all
 end
 
 25.times do
-  Faker::Config.locale = 'fr'
+  Faker::Config.locale = 'it'
   Chef.create(
     name: Faker::Name.name,
-    specialty: Faker::Address.country,
+    specialty: CUISINES.sample,
     description: Faker::Quote.famous_last_words,
     user_id: User.order(Arel.sql('RANDOM()')).first.id,
     price_per_day: Faker::Number.between(from: 80.0, to: 200.0).round(2),
