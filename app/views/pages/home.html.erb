@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Chef Chez Vous !</title>
-    <link rel="stylesheet" href="<%= asset_path('styles.css') %>">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <main>
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.sudouest.fr/13349336/1000x500/m6-0057633-0008.jpg?v=1670842498);">
-        <div class="container">
-          <h1>Welcome to Chef chez Vous!</h1>
-
-          <p>Booking your own private chef has never been so easy.</p>
-
-        </div>
-      </div>
-
-      <div class="container my-4">
-        <h2 class="text-left">Chefs in the spotlight</h2>
-      </div>
-
+<head>
+  <title>Chef Chez Vous !</title>
+  <link rel="stylesheet" href="<%= asset_path('styles.css') %>">
+  <script src="script.js"></script>
+</head>
+<body>
+  <main>
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.sudouest.fr/13349336/1000x500/m6-0057633-0008.jpg?v=1670842498);">
       <div class="container">
-        <div class="row justify-content-center">
-          <% @chefs.each do |chef| %>
-            <div class="col-md-4 text-center chef-card">
-              <%= link_to chef_path(chef) do %>
-                <%= cl_image_tag(chef.photo, height: 300, width: 400, crop: :fill, class: "chef-image rounded-circle") unless chef.photo.nil? %>
-                <h4 class="chef-name"><%= chef.name %></h4>
-              <% end %>
-              <p class="chef-specialty"><%= chef.specialty %></p>
-              <p class="chef-price"><%= chef.price_per_day %> € per day</p>
-            </div>
-          <% end %>
-        </div>
-        <div class="text-center my-4">
-          <%= link_to 'Discover more chefs', chefs_path, class: 'btn btn-primary' %>
-        </div>
+        <h1>Welcome to Chef chez Vous!</h1>
+        <p>Booking your own private chef has never been so easy.</p>
       </div>
-    </main>
+    </div>
 
-  </body>
+    <div class="container my-4">
+      <h2 class="text-left">Chefs in the spotlight</h2>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <% @chefs.each do |chef| %>
+          <div class="col-md-4">
+            <!-- This link makes the entire card clickable and will lead to the chef's profile -->
+            <%= link_to chef_path(chef), class: "chef-card-link" do %>
+              <div class="chef-card">
+                <!-- Chef card image uses Cloudinary's URL obtained via cl_image_path, ensuring it fills the background space -->
+                <div class="chef-card-image"
+                     style="background-image: url(<%= cl_image_path(chef.photo, height: 300, width: 400, crop: :fill) %>);">
+                </div>
+                <!-- Chef card info contains name, specialty, and price -->
+                <div class="chef-card-info">
+                  <h4 class="chef-name"><%= chef.name %></h4>
+                  <p class="chef-specialty"><%= chef.specialty %></p>
+                  <p class="chef-price"><%= chef.price_per_day %> € per day</p>
+                  <!-- Chef rating could be implemented here, using your own system or a gem -->
+                  <div class="chef-rating">
+                    <span class="stars">★★★★☆</span> <!-- Replace with dynamic rating system -->
+                    <span class="rating-number">(46)</span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </main>
+</body>
 </html>
