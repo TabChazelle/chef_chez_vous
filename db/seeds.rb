@@ -8,28 +8,28 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-100.times do |i|
+25.times do |i|
   User.create(
     email: Faker::Internet.unique.email,
     password: Faker::Internet.password(min_length: 10),
     name: Faker::Name.name,
     profile_picture_url: "https://source.unsplash.com/random/#{i}",
-    biography: Faker::Lorem.paragraph,
+    biography: Faker::TvShows::Friends.quote,
     chef: false
   )
 end
 
-100.times do
+25.times do
   Chef.create(
     name: Faker::Name.name,
     specialty: Faker::Food.dish,
-    description: Faker::Lorem.paragraph,
+    description: Faker::Quote.famous_last_words,
     user_id: User.order(Arel.sql('RANDOM()')).first.id,
     price_per_day: Faker::Number.decimal(l_digits: 2)
   )
 end
 
-100.times do
+50.times do
   start_date = Faker::Date.forward(days: rand(1..23))
   end_date = start_date + rand(1..5) # end date should be a few days after start.
   Booking.create(
@@ -42,7 +42,7 @@ end
 end
 
 Chef.all.each do |chef|
-  3.times do
+  10.times do
     Review.create(
       chef_id: chef.id,
       user_id: User.order(Arel.sql('RANDOM()')).first.id,

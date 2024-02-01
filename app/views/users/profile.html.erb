@@ -1,31 +1,35 @@
 <h1>User Profile</h1>
 
-<p>Name: <%= @user.name %></p>
-<p>Email: <%= @user.email %></p>
+<div id="profile">
+  <p>Name: <span id="name" contenteditable="true"><%= @user.name %></span></p>
+  <p>Email: <span id="email" contenteditable="true"><%= @user.email %></span></p>
 
-<!-- Add more profile information here -->
-<div>
-  <h2>Profile Picture</h2>
-  <img src="<%= @user.profile_picture_url %>" alt="Profile Picture">
-</div>
- <div>
-  <h2>Biography</h2>
-  <p><%= @user.biography %></p>
-</div>
+  <!-- Add more profile information here -->
+  <div>
+    <h2>Profile Picture</h2>
+  <%= image_tag("remi.jpg", alt: "remi", class: "profile-pic-one") %>
 
+  </div>
+  <div>
+    <h2>Biography</h2>
+    <p id="biography" contenteditable="true"><%= @user.biography %></p>
+  </div>
+</div>
 
 <%= form_with(model: @user, url: toggle_chef_user_path(@user), method: :patch, local: true) do |form| %>
   <% if @user.chef? %>
     <%= form.submit "Remove Chef Status", class: "btn btn-danger" %>
   <% else %>
-    <%= form.submit "Become a Chef", class: "btn btn-success" %>
+    <%= form.submit "Become a Chef", class: "button" %>
   <% end %>
 <% end %>
 
 <% if @user.chef? %>
   <div>
-  <h2>special chef only stuff!</h2>
-  <p><%= @user.biography %></p>
-</div>
-
+    <h2>My Special Chef Details</h2>
+    <p><strong>Specialty:</strong> <%= @user.specialty %></p>
+  </div>
 <% end %>
+
+<%= link_to "Edit Profile", edit_user_path(@user), class: "button edit-profile-button" %>
+<%= link_to "Go back home", root_path %>
