@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user
       @user.update(chef: !@user.chef) # Toggle the chef status
-      redirect_to profile_user_path(@user), notice: "Chef status updated successfully."
+      redirect_to profile_user_path(@user)
     else
       redirect_to root_path, alert: "You must be logged in to perform this action."
     end
