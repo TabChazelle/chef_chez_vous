@@ -14,7 +14,7 @@
     password: Faker::Internet.password(min_length: 10),
     name: Faker::Name.name,
     profile_picture_url: "https://source.unsplash.com/random/#{i}",
-    biography: Faker::Lorem.paragraph,
+    biography: Faker::TvShows::Friends.quote,
     chef: false
   )
 end
@@ -23,7 +23,7 @@ end
   Chef.create(
     name: Faker::Name.name,
     specialty: Faker::Food.dish,
-    description: Faker::Lorem.paragraph,
+    description: Faker::Quote.famous_last_words,
     user_id: User.order(Arel.sql('RANDOM()')).first.id,
     price_per_day: Faker::Number.decimal(l_digits: 2)
   )
