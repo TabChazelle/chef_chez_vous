@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.all # Needs to be current user only.
   end
 
   def show

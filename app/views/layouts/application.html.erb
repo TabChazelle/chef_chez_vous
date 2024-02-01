@@ -7,15 +7,15 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= render "shared/navbar" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <%= render "shared/navbar" %>
+      <%= yield %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
       <%= render "shared/footer" %>
   </body>
 </html>

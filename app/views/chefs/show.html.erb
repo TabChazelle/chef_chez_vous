@@ -24,3 +24,5 @@
 <% @chef.reviews.each do |review| %>
   <p><strong><%= review.user.name %>:</strong> <%= review.content %></p>
 <% end %>
+
+<%= render "shared/booking_form" %>
