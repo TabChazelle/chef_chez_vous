@@ -1,29 +1,15 @@
-
-<h1>Booking Details</h1>
-
-<p>
-  <strong>Chef ID:</strong>
-  <%= @booking.chef_id %>
-</p>
-
-<p>
-  <strong>Chef Name:</strong>
-  <%= @booking.chef.name %>
-</p>
-
-<p>
-  <strong>Customer Name:</strong>
-  <%= @booking.user.name %>
-</p>
-
-<p>
-  <strong>Start Date:</strong>
-  <%= @booking.start_date %>
-</p>
-
-<p>
-  <strong>End Date:</strong>
-  <%= @booking.end_date %>
-</p>
-
-<%= link_to 'Delete Booking', booking_path(@booking), data: { turbo_method: :delete, turbo_confirm: 'There is no undo, are you sure you wish to cancel your booking?' }, class: 'btn btn-danger' %>
+<div class="container my-5">
+  <div class="card mx-auto" style="width: 50rem;">
+    <div class="card-body text-center">
+      <img class="rounded-circle mx-auto" src="<%= @booking.photo %>" alt="Chef's picture" style="width: 150px; height: 150px; object-fit: cover;">
+      <h3 class="card-title mt-4">Your upcoming booking with <%= @booking.chef.name %></h3>
+      <p class="card-text">
+        <strong>From:</strong> <%= @booking.start_date.strftime("%B %d, %Y") %><br>
+        <strong>To:</strong> <%= @booking.end_date.strftime("%B %d, %Y") %><br>
+        <strong>Status:</strong> <%= @booking.status %><br>
+        <strong>Number of guests:</strong> 12<br>
+        <strong>Location:</strong> 117 Avenue des Champs Elysées, 75008 Paris<br>
+      </p>
+    </div>
+  </div>
+</div>
