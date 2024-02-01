@@ -14,7 +14,7 @@ Chef.destroy_all
 User.destroy_all
 
 25.times do |i|
-  Faker::Config.locale = 'fr'
+  Faker::Config.locale = 'it'
   User.create(
     email: Faker::Internet.unique.email,
     password: Faker::Internet.password(min_length: 10),
@@ -27,7 +27,7 @@ User.destroy_all
 end
 
 25.times do
-  Faker::Config.locale = 'fr'
+  Faker::Config.locale = 'it'
   Chef.create(
     name: Faker::Name.name,
     specialty: Faker::Address.country,
