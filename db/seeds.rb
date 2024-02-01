@@ -14,23 +14,28 @@ Chef.destroy_all
 User.destroy_all
 
 25.times do |i|
+  Faker::Config.locale = 'fr'
   User.create(
     email: Faker::Internet.unique.email,
     password: Faker::Internet.password(min_length: 10),
     name: Faker::Name.name,
     profile_picture_url: "https://source.unsplash.com/random/#{i}",
     biography: Faker::TvShows::Friends.quote,
-    chef: false
+    chef: false,
+    city: Faker::Address.city
+
   )
 end
 
 25.times do
+  Faker::Config.locale = 'fr'
   Chef.create(
     name: Faker::Name.name,
     specialty: Faker::Food.dish,
     description: Faker::Quote.famous_last_words,
     user_id: User.order(Arel.sql('RANDOM()')).first.id,
-    price_per_day: Faker::Number.decimal(l_digits: 2)
+    price_per_day: Faker::Number.decimal(l_digits: 2),
+    city: Faker::Address.city
   )
 end
 
@@ -47,7 +52,7 @@ end
 end
 
 Chef.all.each do |chef|
-  10.times do
+  rand(1..10).times do
     Review.create(
       chef_id: chef.id,
       user_id: User.order(Arel.sql('RANDOM()')).first.id,
