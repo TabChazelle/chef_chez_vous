@@ -6,6 +6,14 @@ class ChefsController < ApplicationController
     @chef = Chef.new
   end
 
+  def index
+    @chefs = Chef.all
+    if params[:query].present?
+      sql_subquery = "name ILIKE :query OR specialty ILIKE :query"
+      @chefs = @chefs.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+  end
+
   def create
     @chef = Chef.new(chef_params)
     @chef.user = current_user

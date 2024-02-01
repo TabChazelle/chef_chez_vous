@@ -15,38 +15,22 @@
       </div>
     </div>
 
+    <%# Container for the featured chefs section %>
     <div class="container my-4">
       <h2 class="text-left">Chefs in the spotlight</h2>
     </div>
 
-    <div class="container">
-      <div class="row justify-content-center">
-        <% @chefs.each do |chef| %>
-          <div class="col-md-4">
-            <!-- This link makes the entire card clickable and will lead to the chef's profile -->
-            <%= link_to chef_path(chef), class: "chef-card-link" do %>
-              <div class="chef-card">
-                <!-- Chef card image uses Cloudinary's URL obtained via cl_image_path, ensuring it fills the background space -->
-                <div class="chef-card-image"
-                     style="background-image: url(<%= cl_image_path(chef.photo, height: 300, width: 400, crop: :fill) %>);">
-                </div>
-                <!-- Chef card info contains name, specialty, and price -->
-                <div class="chef-card-info">
-                  <h4 class="chef-name"><%= chef.name %></h4>
-                  <p class="chef-specialty"><%= chef.specialty %></p>
-                  <p class="chef-price"><%= chef.price_per_day %> € per day</p>
-                  <!-- Chef rating could be implemented here, using your own system or a gem -->
-                  <div class="chef-rating">
-                    <span class="stars">★★★★☆</span> <!-- Replace with dynamic rating system -->
-                    <span class="rating-number">(46)</span>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+    <%# Container for the chefs that will be updated with infinite scrolling %>
+    <div class="container" id="chefs-container">
+      <%# Rendering the partial to display chefs %>
+    <%= render partial: 'shared/chefsdisplay', locals: { chefs: @chefs } %>
     </div>
+
+    <%# Loading indicator that will be displayed while loading more chefs %>
+    <div id="loading" style="display: none;">
+      <p>Loading more chefs...</p>
+    </div>
+
   </main>
 </body>
 </html>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
 
   resources :bookings, only: %i[new create show edit update index destroy]
-  resources :chefs, only: %i[new create show edit update]
+  resources :chefs, only: %i[new create show edit update index]
 
   # Possibly needing to add resources for users if we are going to have a profile page.
   # We do not need if it is only used for devise authentication.
@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   resources :users do
     patch 'toggle_chef', on: :member
   end
+
+  get "/infinite_scroll", to: "pages#infinite_scroll"
+
 end

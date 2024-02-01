@@ -1,13 +1,27 @@
-<%# starting the iteration to display all the chefs onto the home page directly similar to airbnb %>
-<%# WIP %>
-
-  <div>
-  <% @instancedvariable.method.each do |chef| %>
-    <div class="form-iteration">
-    <%= chef.method %> - <%= chef.bio %>
-    <br>
+<%# Partial to display chefs in a grid %>
+<div class="row">
+  <% chefs.each do |chef| %>
+    <div class="col-md-4 chef-card-col"> <!-- Ajout de la classe chef-card-col -->
+      <%# Link that makes the entire chef card clickable, leading to the chef's profile %>
+      <%= link_to chef_path(chef), class: "chef-card-link" do %>
+        <div class="chef-card">
+          <%# Chef photo displayed as a background image %>
+          <div class="chef-card-image" style="background-image: url(<%= cl_image_path(chef.photo, height: 300, width: 400, crop: :fill) %>);"></div>
+          <div class="chef-card-info">
+            <%# Chef's name %>
+            <h4 class="chef-name"><%= chef.name %></h4>
+            <%# Chef's specialty %>
+            <p class="chef-specialty"><%= chef.specialty %></p>
+            <%# Chef's price per day %>
+            <p class="chef-price"><%= number_to_currency(chef.price_per_day, locale: :fr) %> per day</p>
+            <%# Placeholder for chef's rating, should be replaced with dynamic rating system %>
+            <div class="chef-rating">
+              <span class="stars">★★★★☆</span> <!-- Replace with dynamic rating system -->
+              <span class="rating-number">(46)</span> <!-- Replace with the actual number of reviews for the chef -->
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
-
   <% end %>
-  
 </div>

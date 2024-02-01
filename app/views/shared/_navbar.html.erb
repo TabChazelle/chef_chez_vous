@@ -14,12 +14,12 @@
 
     <!-- Search Bar -->
     <div class="d-flex flex-grow-1 mx-4">
-      <%= form_with(url: "#", local: true, method: :get, class: "input-group") do %>
-        <%= search_field_tag :query, params[:query], placeholder: "Search by name or specialty", aria_label: "Search", class: "form-control" %>
+      <%= form_with(url: chefs_path, local: true, method: :get, class: "input-group") do %>
+       <%= search_field_tag :query, params[:query], placeholder: "Search by name or specialty", aria_label: "Search", class: "form-control" %>
         <%= button_tag type: 'submit', class: 'btn btn-outline-primary' do %>
-          Search
-        <% end %>
-      <% end %>
+         Search
+       <% end %>
+     <% end %>
     </div>
 
     <!-- Navigation Links -->
