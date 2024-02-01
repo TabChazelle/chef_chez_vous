@@ -2,6 +2,7 @@
 <%= cl_image_tag(@chef.photo, height: 300, width: 400, crop: :fill) unless @chef.photo.nil? %>
 <p><strong>Chefs Specialty:</strong> <%= @chef.specialty %></p>
 <p><strong>Biography:</strong> <%= @chef.description %></p>
+<p><strong>City: <%= @chef.city %></strong></p>
 
 <%# <% link_to "Book This Chef", new_booking_path(chef_id: @chef.id), class: "btn btn-primary" %>
 <%# above line no longer needed as we are integrating bookings form onto the chef page directly %>

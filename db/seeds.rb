@@ -23,7 +23,6 @@ User.destroy_all
     biography: Faker::TvShows::Friends.quote,
     chef: false,
     city: Faker::Address.city
-
   )
 end
 
@@ -31,10 +30,10 @@ end
   Faker::Config.locale = 'fr'
   Chef.create(
     name: Faker::Name.name,
-    specialty: Faker::Food.dish,
+    specialty: Faker::Address.country,
     description: Faker::Quote.famous_last_words,
     user_id: User.order(Arel.sql('RANDOM()')).first.id,
-    price_per_day: Faker::Number.decimal(l_digits: 2),
+    price_per_day: Faker::Number.between(from: 80.0, to: 200.0).round(2),
     city: Faker::Address.city
   )
 end
