@@ -26,6 +26,4 @@
   <%= @booking.end_date %>
 </p>
 
-<%= link_to 'Delete Booking', booking_path(@booking), data: { turbo_method: :delete, turbo_confirm: 'Go ahead, delete it. Just like my hopes and dreams....' }, class: 'btn btn-danger' %>
-
-<%# hello %>
+<%= link_to 'Delete Booking', booking_path(@booking), data: { turbo_method: :delete, turbo_confirm: 'There is no undo, are you sure you wish to cancel your booking?' }, class: 'btn btn-danger' %>
