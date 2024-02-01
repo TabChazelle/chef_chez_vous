@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   before_action :set_user, only: [:create]
 
   def new
-    @booking = Booking.new
+    @booking = Booking.new(chef_id: params[:chef_id])
   end
 
   def create
