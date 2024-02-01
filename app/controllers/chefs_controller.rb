@@ -20,6 +20,7 @@ class ChefsController < ApplicationController
     @chef = Chef.find(params[:id])
     @bookings = @chef.bookings
     @booking = Booking.new
+    @booking = @chef.bookings.build
   end
 
   def edit

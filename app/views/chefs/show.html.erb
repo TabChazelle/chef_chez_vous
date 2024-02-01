@@ -3,26 +3,14 @@
 <p><strong>Specialty:</strong> <%= @chef.specialty %></p>
 <p><strong>Description:</strong> <%= @chef.description %></p>
 
-<h2>Bookings from Users:</h2>
+<%# <% link_to "Book This Chef", new_booking_path(chef_id: @chef.id), class: "btn btn-primary" %>
+<%# above line no longer needed as we are integrating bookings form onto the chef page directly %>
 
-<% if @bookings.any? %>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <li>
-        <p><strong>User:</strong> <%= booking.user.email %></p>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No bookings from users yet.</p>
-<% end %>
-
-<%= link_to "Back to Homepage", root_path, class: "btn btn-primary" %>
-<%= link_to "Book This Chef", new_booking_path(chef_id: @chef.id), class: "btn btn-primary" %>
-
-<h2>Check out this chefs reviews:</h2>
+<h2>Check out the reviews for <%= @chef.name %>!</h2>
 <% @chef.reviews.each do |review| %>
   <p><strong><%= review.user.name %>:</strong> <%= review.content %></p>
 <% end %>
 
-<%= render "shared/booking_form" %>
+<%= link_to "Back to Homepage", root_path, class: "btn btn-primary" %>
+
+<%= render 'shared/booking_form', booking: @booking, chef_name: @chef.name %>
