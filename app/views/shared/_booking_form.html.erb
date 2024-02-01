@@ -7,7 +7,7 @@
         <%= simple_form_for @booking do |f| %>
         <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" }, class: "datepicker" } %>
         <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" }, class: "datepicker" } %>
-        <%= f.input :chef_id, input_html: { value: @booking.chef_id } %>
+        <% f.input :chef_id, input_html: { value: @booking.chef_id } %>
         <%= f.submit class: 'btn btn-flat' %>
         <% end %>
       </div>

@@ -6,11 +6,6 @@
   height: 50px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-bottom: 0px;
 }
 .footer-links {
   display: flex;
@@ -28,4 +23,10 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
 }
