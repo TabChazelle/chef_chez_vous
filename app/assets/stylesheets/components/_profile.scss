@@ -18,6 +18,22 @@
 
 }
 
+.profile-container-chef {
+  display: flex;
+  align-items: justify; /* Aligns items at the start of the cross axis */
+  margin-top: 50px;
+  padding: 0 20px; /* Adjust padding as needed */
+}
+
+.profile-content {
+  max-width: 400px; /* Adjust the width as needed */
+}
+
+.booking-form-share {
+  text-align: center;
+  max-width: 400% !important;
+}
+
 
 .edit-profile-button {
   display: inline-block;
