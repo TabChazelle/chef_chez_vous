@@ -2,14 +2,15 @@
 <div class="container">
 <h1> My Bookings</h1>
     <% if @bookings.any? %>
-  <div class="card" style="width: 25rem;">
-    <div class="card-header">
-      Featured
+  <div class="card text-center">
+    <div class="card-header bg-dark text-white">
+      Get Ready! 🍽️
     </div>
+    <div class="card-body">
       <ul class="list-group list-group-flush">
         <% @bookings.each do |booking| %>
           <li class="list-group-item">
-            <%= booking.chef_id %> - <%= booking.start_date %> at <%= booking.end_date %>
+            Your Chef: <%= booking.chef.name %> - <%= booking.start_date %> untill <%= booking.end_date %>
             <%= link_to 'View Details', booking_path(booking), class: 'btn btn-primary' %>
           </li>
         <% end %>
@@ -17,6 +18,10 @@
     <% else %>
       <p>No upcoming bookings.</p>
     <% end %>
+  <div class="card-footer text-muted">
+    Bon Appetit
   </div>
+</div>
+</div>
 <%= link_to "Create New Booking ", new_booking_path %>
 </div>
