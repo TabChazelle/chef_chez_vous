@@ -6,7 +6,7 @@ class Chef < ApplicationRecord
 
   def photo
     # Replace this with the actual logic at a later date
-    "https://source.unsplash.com/random/#{self.id}"
+    "https://source.unsplash.com/featured/?#{self.id},chef,chefs"
   end
 
 end
