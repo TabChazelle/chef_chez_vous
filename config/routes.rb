@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   resources :users do
     patch 'toggle_chef', on: :member
   end
+
+  get "/infinite_scroll", to: "pages#infinite_scroll"
+
 end

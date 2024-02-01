@@ -5,6 +5,9 @@ gem "devise"
 
 ruby "3.1.2"
 
+#Adding kaminari for infinite scroll
+gem 'kaminari'
+
 # Adding faker for seed tests
 gem 'faker'
 

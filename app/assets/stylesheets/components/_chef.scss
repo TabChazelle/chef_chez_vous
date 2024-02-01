@@ -1,53 +1,56 @@
 .chef-card-link {
   text-decoration: none;
-  color: inherit; // Pour que le texte à l'intérieur du lien ait la couleur par défaut
+  color: inherit; /* Make the text inside the link inherit the default color */
+}
 
-  .chef-card {
-    margin-bottom: 2rem;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: box-shadow 0.3s ease;
-    &:hover {
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    }
+.chef-card {
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
 
-    .chef-card-image {
-      height: 200px; // Ou la hauteur désirée
-      background-size: cover;
-      background-position: center;
-    }
+/* Added colon to indicate pseudo-class */
+.chef-card:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
 
-    .chef-card-info {
-      padding: 1rem;
-      background: #fff;
+.chef-card-image {
+  height: 200px; /* Desired height */
+  background-size: cover;
+  background-position: center;
+}
 
-      .chef-name {
-        margin: 0.5rem 0;
-      }
+.chef-card-info {
+  padding: 1rem;
+  background: #fff;
+}
 
-      .chef-specialty {
-        background-color: #969696;
-        color: white;
-        border-radius: 8px;
-        padding: 5px 10px;
-        display: inline-block;
-        margin-bottom: 0.5rem;
-      }
+.chef-name {
+  margin: 0.5rem 0;
+}
 
-      .chef-price {
-        font-weight: bold;
-      }
+.chef-specialty {
+  background-color: #969696;
+  color: white;
+  border-radius: 8px;
+  padding: 5px 10px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
 
-      .chef-rating {
-        .stars {
-          color: #E0A800; // Or another color for the stars
-        }
-        .rating-number {
-          margin-left: 0.5rem;
-          color: #666;
-        }
-      }
-    }
+.chef-price {
+  font-weight: bold;
+}
+
+.chef-rating {
+  .stars {
+    color: #E0A800; /* Or another color for the stars */
+  }
+
+  .rating-number {
+    margin-left: 0.5rem;
+    color: #666;
   }
 }
