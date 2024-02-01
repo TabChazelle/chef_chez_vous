@@ -1,14 +1,18 @@
 <!-- app/views/shared/_navbar.html.erb -->
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
+    <!-- ChefChezVous logo -->
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "ccvLogo.png" %>
     <% end %>
 
+    <!-- Navbar Toggler Button -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Search Bar -->
     <div class="d-flex flex-grow-1 mx-4">
       <%= form_with(url: "#", local: true, method: :get, class: "input-group") do %>
         <%= search_field_tag :query, params[:query], placeholder: "Search by name or specialty", aria_label: "Search", class: "form-control" %>
@@ -18,33 +22,30 @@
       <% end %>
     </div>
 
+    <!-- Navigation Links -->
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
+          <!-- Dropdown Menu for Logged-in Users -->
           <li class="nav-item dropdown">
             <%= link_to "#", class: "nav-link dropdown-toggle", id: "navbarDropdownMenuLink", data: { bs_toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } do %>
               <%= current_user.name %>
             <% end %>
+            <!-- Dropdown Menu Items -->
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <%= link_to "Profile", profile_user_path(current_user), class: "dropdown-item" %>
               <%= link_to "My Bookings", bookings_path(current_user), class: "dropdown-item" %>
               <%= link_to "Messages", "#", class: "dropdown-item" %>
+              <!-- Log Out link is placed inside the dropdown for logged-in users -->
+              <div class="dropdown-divider"></div>
+              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
+          <!-- Login Link for Guests -->
           <%= link_to "Login", new_user_session_path, class: "nav-item nav-link" %>
         <% end %>
       </ul>
-
-      <% if user_signed_in? %>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-              Log out
-            <% end %>
-          </li>
-        </ul>
-      <% end %>
     </div>
   </div>
 </div>

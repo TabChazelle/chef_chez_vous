@@ -1,38 +1,53 @@
-.chef-image {
-  width: 150px; /* ou une autre taille selon votre design */
-  height: 150px; /* assurez-vous que la hauteur et la largeur sont égales pour un cercle parfait */
-  border-radius: 50%; /* cela rendra l'image ronde */
-  object-fit: cover; /* cela va couper l'image pour qu'elle remplisse le cercle */
-  display: block; /* ceci est nécessaire pour centrer correctement l'image avec margin auto */
-  margin: auto; /* cela centre l'image horizontalement dans la colonne */
-}
-
-.chef-card {
-  margin-bottom: 2rem; // Ajoute une marge en bas pour aérer entre les lignes
-}
-
-.chef-price {
-  font-weight: bold;
-  margin-top: 2px;
-}
-
-.chef-specialty {
-  background-color: #969696;
-  border-radius: 8px;
-  padding: 5px 10px;
-  display: inline-block;
-}
-
-.chef-name {
-  color: black;
+.chef-card-link {
   text-decoration: none;
-  margin-top: 4px;
-}
+  color: inherit; // Pour que le texte à l'intérieur du lien ait la couleur par défaut
 
-a {
-  text-decoration: none;
-}
+  .chef-card {
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+    &:hover {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
 
-a:hover {
-  text-decoration: none;
+    .chef-card-image {
+      height: 200px; // Ou la hauteur désirée
+      background-size: cover;
+      background-position: center;
+    }
+
+    .chef-card-info {
+      padding: 1rem;
+      background: #fff;
+
+      .chef-name {
+        margin: 0.5rem 0;
+      }
+
+      .chef-specialty {
+        background-color: #969696;
+        color: white;
+        border-radius: 8px;
+        padding: 5px 10px;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+      }
+
+      .chef-price {
+        font-weight: bold;
+      }
+
+      .chef-rating {
+        .stars {
+          color: #E0A800; // Or another color for the stars
+        }
+        .rating-number {
+          margin-left: 0.5rem;
+          color: #666;
+        }
+      }
+    }
+  }
 }
