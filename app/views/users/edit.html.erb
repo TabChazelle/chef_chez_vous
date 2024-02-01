@@ -1,0 +1,16 @@
+<%= form_for @user do |f| %>
+  <div class="field">
+    <%= f.label :biography %>
+    <%= f.text_area :biography, rows: 5 %>
+  </div>
+
+  <% if @user.chef? %>
+    <div class="field">
+      <%= f.label :specialty %>
+      <%= f.text_field :specialty %>
+    </div>
+  <% end %>
+
+  <%= f.submit "Update Profile" %>
+  <%= link_to "Back to Profile", profile_user_path(@user) %>
+<% end %>

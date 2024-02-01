@@ -12,3 +12,43 @@ header {
   height: 50px;
   object-fit: cover;
 }
+
+.profile-pic-one {
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+}
+
+
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff; /* Change to your desired background color */
+  color: #fff; /* Change to your desired text color */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3; /* Change to your desired hover background color */
+}
+
+
+.button.edit-profile-button{
+  display: inline-block !important;
+  padding: 10px 20px;
+  background-color: #007bff; /* Change to your desired background color */
+  color: #fff; /* Change to your desired text color */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button.edit-profile-button:hover {
+  background-color: #0056b3; /* Change to your desired hover background color */
+}
