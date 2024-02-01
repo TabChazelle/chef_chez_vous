@@ -1,0 +1,23 @@
+<!-- Chef's search results -->
+<div class="container">
+  <div class="row">
+    <% @chefs.each do |chef| %>
+      <div class="col-md-4 chef-card-col">
+        <%= link_to chef_path(chef), class: "chef-card-link" do %>
+          <div class="chef-card">
+            <div class="chef-card-image" style="background-image: url(<%= cl_image_path(chef.photo, height: 300, width: 400, crop: :fill) %>);"></div>
+            <div class="chef-card-info">
+              <h4 class="chef-name"><%= chef.name %></h4>
+              <p class="chef-specialty"><%= chef.specialty %></p>
+              <p class="chef-price"><%= number_to_currency(chef.price_per_day, locale: :fr) %> per day</p>
+              <div class="chef-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-number">(46)</span> <!-- Replace with actual data if available -->
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
