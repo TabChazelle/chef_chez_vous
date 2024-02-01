@@ -1,16 +1,17 @@
-<h1>Chef Profile - <%= @chef.name %></h1>
+<h1><%= @chef.name %></h1>
 <%= cl_image_tag(@chef.photo, height: 300, width: 400, crop: :fill) unless @chef.photo.nil? %>
-<p><strong>Specialty:</strong> <%= @chef.specialty %></p>
-<p><strong>Description:</strong> <%= @chef.description %></p>
+<p><strong>Chefs Specialty:</strong> <%= @chef.specialty %></p>
+<p><strong>Biography:</strong> <%= @chef.description %></p>
 
 <%# <% link_to "Book This Chef", new_booking_path(chef_id: @chef.id), class: "btn btn-primary" %>
 <%# above line no longer needed as we are integrating bookings form onto the chef page directly %>
+
+
+<%= link_to "Back to Homepage", root_path, class: "btn btn-primary" %>
+
+<%= render 'shared/booking_form', booking: @booking, chef_name: @chef.name %>
 
 <h2>Check out the reviews for <%= @chef.name %>!</h2>
 <% @chef.reviews.each do |review| %>
   <p><strong><%= review.user.name %>:</strong> <%= review.content %></p>
 <% end %>
-
-<%= link_to "Back to Homepage", root_path, class: "btn btn-primary" %>
-
-<%= render 'shared/booking_form', booking: @booking, chef_name: @chef.name %>
