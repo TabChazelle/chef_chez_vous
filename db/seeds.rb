@@ -8,6 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Booking.destroy_all
+Review.destroy_all
+Chef.destroy_all
+User.destroy_all
+
 25.times do |i|
   User.create(
     email: Faker::Internet.unique.email,
