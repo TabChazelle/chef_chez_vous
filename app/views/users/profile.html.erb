@@ -1,4 +1,8 @@
+
+<div class="profile-header">
 <h1>User Profile</h1>
+<%= link_to "⚙️", edit_user_path(@user), class: "button edit-profile-button" %>
+</div>
 
 <div id="profile">
   <p>Name: <span id="name" contenteditable="true"><%= @user.name %></span></p>
@@ -7,8 +11,7 @@
   <!-- Add more profile information here -->
   <div>
     <h2>Profile Picture</h2>
-  <%= image_tag("remi.jpg", alt: "remi", class: "profile-pic-one") %>
-
+    <%= image_tag("remi.jpg", alt: "remi", class: "profile-pic-one") %>
   </div>
   <div>
     <h2>Biography</h2>
@@ -16,13 +19,17 @@
   </div>
 </div>
 
-<%= form_with(model: @user, url: toggle_chef_user_path(@user), method: :patch, local: true) do |form| %>
-  <% if @user.chef? %>
-    <%= form.submit "Remove Chef Status", class: "btn btn-danger" %>
-  <% else %>
-    <%= form.submit "Become a Chef", class: "button" %>
+<div class="profile-actions">
+
+
+  <%= form_with(model: @user, url: toggle_chef_user_path(@user), method: :patch, local: true) do |form| %>
+    <% if @user.chef? %>
+      <%= form.submit "Remove Chef Status", class: "btn btn-danger" %>
+    <% else %>
+      <%= form.submit "Become a Chef", class: "button" %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <% if @user.chef? %>
   <div>
@@ -30,6 +37,3 @@
     <p><strong>Specialty:</strong> <%= @user.specialty %></p>
   </div>
 <% end %>
-
-<%= link_to "Edit Profile", edit_user_path(@user), class: "button edit-profile-button" %>
-<%= link_to "Go back home", root_path %>

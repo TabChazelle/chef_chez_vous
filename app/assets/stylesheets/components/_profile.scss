@@ -1,0 +1,25 @@
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.profile-header h1 {
+  margin-right: 20px; /* Adjust as needed */
+}
+
+.edit-profile-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #fcfdff; /* Change to your desired background color */
+  color: #fff; /* Change to your desired text color */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.edit-profile-button:hover {
+  background-color: #e6e6e6; /* Change to your desired hover background color */
+}
