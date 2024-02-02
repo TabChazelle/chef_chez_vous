@@ -15,7 +15,7 @@ Chef.destroy_all
 User.destroy_all
 
 25.times do |i|
-  Faker::Config.locale = 'it'
+  # Faker::Config.locale = 'it'
   User.create(
     email: Faker::Internet.unique.email,
     password: Faker::Internet.password(min_length: 10),
@@ -30,14 +30,23 @@ end
 Chef.create(
   name: "Raymond Blanc",
   specialty: "French cuisines",
-  description: "Raymond Blanc is a French chef. He is one of Britain's most respected chefs. Blanc is the chef patron at Le Manoir aux Quat' Saisons, a hotel-restaurant in Great Milton, Oxfordshire, England. The restaurant has two Michelin stars and scored 9/10 in the Good Food Guide. He is entirely self-taught, but has himself taught or employed other chefs including Heston Blumenthal, John Burton",
+  description: "Raymond Blanc is a French chef. He is one of Britain's most respected chefs. Blanc is the chef patron at Le Manoir aux Quat' Saisons, a hotel-restaurant in Great Milton, Oxfordshire, England. The restaurant has two Michelin stars and scored 9/10 in the Good Food Guide. He is entirely self-taught, but has himself taught or employed other chefs including Heston Blumenthal, John Burton and Marco Pierre White.",
   user_id: User.order(Arel.sql('RANDOM()')).first.id,
   price_per_day: 450.50,
   city: "Paris"
 )
 
+Chef.create(
+  name: "Arnaud Lahaut",
+  specialty: "Fine Dining",
+  description: "Arnaud Lahaut is a French chef. He is one of Frances most respected chefs. Lahaut is the chef patron at Le Manoir aux Quat' Saisons, a hotel-restaurant in Great Milton, Oxfordshire, England. The restaurant has two Michelin stars and scored 9/10 in the Good Food Guide. He is entirely self-taught, but has himself taught or employed other chefs including Heston Blumenthal, John Burton and Marco Pierre White.",
+  user_id: User.order(Arel.sql('RANDOM()')).first.id,
+  price_per_day: 295.00,
+  city: "Bordeaux"
+)
+
 25.times do
-  Faker::Config.locale = 'it'
+  # Faker::Config.locale = 'it'
   Chef.create(
     name: Faker::Name.name,
     specialty: CUISINES.sample,
