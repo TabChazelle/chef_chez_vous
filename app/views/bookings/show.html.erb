@@ -7,13 +7,13 @@
         <%= image_tag @chef.photo, class: 'chef-photo' if @chef.photo.present? %>
           <h1><%= @chef.name %></h1>
         </div>
-        Chef: <%= @booking.chef.name %><br>
-        City: <%= @booking.chef.city %><br>
-        Dates: <%= @booking.start_date %> to <%= @booking.end_date %><br>
-        Price per day: <%= @booking.chef.price_per_day %><br>
-        Number of guests: <%= @booking.number_of_guests %><br>
-        Special requests: <%= @booking.special_requests %><br>
-        Address: <%= @booking.address %>
+        <strong>Chef:</strong> <%= @booking.chef.name %><br>
+        <strong>City:</strong> <%= @booking.chef.city %><br>
+        <strong>Dates:</strong> <%= @booking.start_date %> to <%= @booking.end_date %><br>
+        <strong>Price per day:</strong> <%= @booking.chef.price_per_day %><br>
+        <strong>Number of guests:</strong> <%= @booking.number_of_guests %><br>
+        <strong>Special requests:</strong> <%= @booking.special_requests %><br>
+        <strong>Address:</strong> <%= @booking.address %>
       </p>
     </div>
   <br>
