@@ -1,12 +1,14 @@
 
 <%= link_to "✏️", edit_user_path(@user), class: "button edit-profile-button" %> <!-- don't move it!! -->
 <div class="profile-container">
+<div class="card-body text-center">
+<div class="card mx-auto" style="width: 50rem;">
 <div class="profile-header">
   <div>
     <h2></h2>
     <%= image_tag("remi.jpg", alt: "remi", class: "profile-pic-one") %>
   </div>
-<h1>User Profile</h1>
+<h1>My Profile</h1>
 
 </div>
 
@@ -35,7 +37,7 @@
 <% end %>
 </div>
 </div>
-
+  <div class="status-button">
   <%= form_with(model: @user, url: toggle_chef_user_path(@user), method: :patch, local: true) do |form| %>
     <% if @user.chef? %>
       <%= form.submit "Remove Chef Status", class: "btn btn-danger" %>
@@ -43,4 +45,7 @@
       <%= form.submit "Become a Chef", class: "button" %>
     <% end %>
   <% end %>
+  </div>
+  </div>
+  </div>
 </div>
