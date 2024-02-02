@@ -19,7 +19,7 @@
 
   <div class="biography">
     <h2>Biography</h2>
-    <p id="biography" contenteditable="true"><%= @user.biography %></p>
+    <p id="biography" contenteditable="true"><%= "This is me. I think it's apparent that I need to rethink my life a little bit. What's my problem? First of all, I'm a rat. Which means, life is hard. Second, I have a highly developed sense of taste and smell."%></p> <!-- @user.biography -->
   </div>
 
 
@@ -28,8 +28,10 @@
 <% if @user.chef? %>
   <div>
     <h2>My Special Chef Details</h2>
-    <p><strong>Specialty:</strong> <%= @user.specialty %></p>
+    <p><strong>Specialty:</strong> <%= "French Cuisine, Ratatouille"  %></p> <!-- @user.specialty -->
+    <p><strong>My City:</strong> <%= "Paris" %></p> <!-- @user.city -->
   </div>
+
 <% end %>
 </div>
 </div>
