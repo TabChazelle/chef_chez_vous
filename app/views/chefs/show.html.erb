@@ -11,6 +11,12 @@
 
     <div class="reviews">
       <h2>Check out their reviews!</h2>
+      <%# Easter eggs for presentation. We can delete after vvvv %>
+      <p><strong>Kai T: </strong> Chef Mahaut turned my kitchen into a coding paradise, with each dish feeling like a perfectly executed function. His code (cooking) repository is definitely fork-worthy!</p>
+      <p><strong>Brandon S: </strong>Arnaud's dishes were like well-structured code - elegant, efficient, and with just the right amount of comments (seasonings)! His culinary algorithms left us with a 200 OK taste response</p>
+      <p><strong>Elliot M: </strong>Chef Mahaut turned my kitchen into a coding paradise, with each dish feeling like a perfectly executed function. His code (cooking) repository is definitely fork-worthy!</p>
+      <p><strong>Tabatha C: </strong>Arnaud's cooking prowess was a JSON of flavors - well-structured, easy to parse, and left us with a satisfying data response. We've already opened a pull request for her to come back!</p>
+      <%# Easter eggs for presentation. We can delete after ^^^^ %>
       <% @chef.reviews.each do |review| %>
         <p><strong><%= review.user.name %>:</strong> <%= review.content %></p>
       <% end %>
@@ -23,3 +29,6 @@
     <%= render 'shared/booking_form', booking: @booking, chef_name: @chef.name %>
   </div>
 </div>
+
+
+#     content: ,
