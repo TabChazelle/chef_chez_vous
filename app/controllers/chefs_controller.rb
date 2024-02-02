@@ -29,6 +29,11 @@ class ChefsController < ApplicationController
     @bookings = @chef.bookings
     @booking = Booking.new
     @booking = @chef.bookings.build
+    # @marker = {
+    #   lat: @chef.latitude,
+    #   lng: @chef.longitude,
+    #   image_url: helpers.asset_url('custom_marker.png')
+    # }
   end
 
   def edit

@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "devise"
 
+gem "geocoder"
 
 ruby "3.1.2"
 
