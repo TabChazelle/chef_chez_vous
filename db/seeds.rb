@@ -49,7 +49,7 @@ Chef.create(
 Chef.create(
   name: "Arnaud Lahaut",
   specialty: "Fusion Cuisine",
-  description: "Arnaud Lahaut is a French chef. He is one of France's most respected chefs. Lahaut is the chef patron at Le Cinq, a hotel-restaurant in Paris, France. The restaurant has three Michelin stars and scored 10/10 in the Good Food Guide. He is entirely self-taught, but has himself taught or employed other chefs including Heston Blumenthal, John Burton and Marco Pierre White.",
+  description: "Arnaud Lahaut is a French chef. He is one of France's most respected chefs. Lahaut is the chef patron at Le Cinq, a hotel-restaurant in Bordeaux, France. The restaurant has three Michelin stars and scored 10/10 in the Good Food Guide. He is entirely self-taught, but has himself taught or employed other chefs including Heston Blumenthal, John Burton and Marco Pierre White.",
   user_id: User.order(Arel.sql('RANDOM()')).first.id,
   price_per_day: 295.00,
   city: "Bordeaux"
