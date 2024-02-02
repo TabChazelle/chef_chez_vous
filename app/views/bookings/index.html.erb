@@ -15,8 +15,8 @@
               <p><strong>End:</strong> <%= booking.end_date.strftime("%B %d, %Y") %></p>
             </div>
             <%= link_to 'View Details', booking_path(booking), class: 'button' %>
-            <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'This will cancel your booking with your chef, are you sure?' }, class: 'delete-button' do %>
-            <i class="fas fa-trash"></i>
+            <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'This will cancel your booking with your chef, are you sure?' }, class: 'delete-button', id: 'delete-button' do %>
+              <i class="fas fa-trash"></i>
             <% end %>
           </div>
         </div>
