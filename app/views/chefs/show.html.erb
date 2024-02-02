@@ -1,7 +1,10 @@
 <div class="profile-container-chef">
+
+<div class="card custom-element" style="width: 45rem;">
+<div class="card-body mx-auto text-center">
   <div class="profile-content">
     <h1><%= @chef.name %></h1>
-    <%= cl_image_tag(@chef.photo, height: 300, width: 400, crop: :fill) unless @chef.photo.nil? %>
+    <img class="rounded-circle mx-auto" src="<%= @booking.photo %>" alt="Chef's picture" style="width: 150px; height: 150px; object-fit: cover;">
     <p><strong>Chef's Cuisine Type:</strong> <%= @chef.specialty %></p>
     <p><strong>Biography:</strong> <%= @chef.description %></p>
     <p><strong>Location:</strong> <%= @chef.city %></p>
@@ -11,10 +14,12 @@
       <% @chef.reviews.each do |review| %>
         <p><strong><%= review.user.name %>:</strong> <%= review.content %></p>
       <% end %>
+      </div>
+      </div>
     </div>
   </div>
 
-  <div class="booking-form-share">
+  <div class="" style="width: 70rem;">
     <%= render 'shared/booking_form', booking: @booking, chef_name: @chef.name %>
   </div>
 </div>
