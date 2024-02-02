@@ -18,7 +18,7 @@ User.create(
   email: "elliot@gmail.com",
   password: "password123",
   name: "Elliot Marret",
-  profile_picture_url: "https://source.unsplash.com/random/#{i}",
+  profile_picture_url: "https://source.unsplash.com/random/",
   biography: Faker::TvShows::Friends.quote,
   chef: false,
   city: "Paris"
