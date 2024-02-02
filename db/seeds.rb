@@ -14,6 +14,17 @@ Review.destroy_all
 Chef.destroy_all
 User.destroy_all
 
+User.create(
+  email: "elliot@gmail.com",
+  password: "password123",
+  name: "Elliot Marret",
+  profile_picture_url: "https://source.unsplash.com/random/#{i}",
+  biography: Faker::TvShows::Friends.quote,
+  chef: false,
+  city: "Paris"
+)
+end
+
 25.times do |i|
   # Faker::Config.locale = 'it'
   User.create(
