@@ -4,7 +4,8 @@ class BookingsController < ApplicationController
   before_action :set_user, only: [:create]
 
   def new
-    @booking = Booking.new(chef_id: params[:chef_id])
+    @chef = Chef.find(params[:chef_id])
+    @booking = Booking.new(chef: @chef)
   end
 
   def create
@@ -12,7 +13,7 @@ class BookingsController < ApplicationController
     @booking = @chef.bookings.new(booking_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to bookings_path, notice: "Booking was successful!👍"
+      redirect_to booking_path(@booking), notice: "Booking was successful!👍"
     else
       render :new
     end
@@ -23,6 +24,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
   end
 
   def edit
@@ -57,7 +59,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :chef_id)
+    params.require(:booking).permit(:start_date, :end_date, :chef_id, :number_of_guests, :special_requests, :address)
   end
 
   def set_user

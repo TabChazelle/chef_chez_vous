@@ -1,15 +1,17 @@
-<div class="container my-5">
-  <div class="card mx-auto" style="width: 50rem;">
-    <div class="card-body text-center">
-      <img class="rounded-circle mx-auto" src="<%= @booking.photo %>" alt="Chef's picture" style="width: 150px; height: 150px; object-fit: cover;">
-      <h3 class="card-title mt-4">Your upcoming booking with <%= @booking.chef.name %></h3>
-      <p class="card-text">
-        <strong>From:</strong> <%= @booking.start_date.strftime("%B %d, %Y") %><br>
-        <strong>To:</strong> <%= @booking.end_date.strftime("%B %d, %Y") %><br>
-        <strong>Status:</strong> <%= @booking.status %><br>
-        <strong>Number of guests:</strong> 12<br>
-        <strong>Location:</strong> 117 Avenue des Champs Elysées, 75008 Paris<br>
-      </p>
-    </div>
+<div class="confirmation-card">
+  <div class="confirmation-body">
+    <h5 class="confirmation-title">Booking Confirmation</h5>
+    <p class="confirmation-text">
+      Chef: <%= @booking.chef.name %><br>
+      City: <%= @booking.chef.city %><br>
+      Dates: <%= @booking.start_date %> to <%= @booking.end_date %><br>
+      Price per day: <%= @booking.chef.price_per_day %><br>
+      Number of guests: <%= @booking.number_of_guests %><br>
+      Special requests: <%= @booking.special_requests %><br>
+      Address: <%= @booking.address %>
+    </p>
   </div>
+<br>
+<p>Thank you for your booking! We will be in touch with you shortly.</p>
+<%= link_to 'Show My Bookings', bookings_path, class: 'btn btn-alert' %>
 </div>
