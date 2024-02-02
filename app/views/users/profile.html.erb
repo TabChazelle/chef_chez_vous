@@ -1,7 +1,11 @@
 
-<%= link_to "⚙️", edit_user_path(@user), class: "button edit-profile-button" %> <!-- don't move it!! -->
+<%= link_to "✏️", edit_user_path(@user), class: "button edit-profile-button" %> <!-- don't move it!! -->
 <div class="profile-container">
 <div class="profile-header">
+  <div>
+    <h2></h2>
+    <%= image_tag("remi.jpg", alt: "remi", class: "profile-pic-one") %>
+  </div>
 <h1>User Profile</h1>
 
 </div>
@@ -12,10 +16,7 @@
   <p>Email: <span id="email" contenteditable="true"><%= @user.email %></span></p>
 
   <!-- Add more profile information here -->
-  <div>
-    <h2></h2>
-    <%= image_tag("remi.jpg", alt: "remi", class: "profile-pic-one") %>
-  </div>
+
   <div class="biography">
     <h2>Biography</h2>
     <p id="biography" contenteditable="true"><%= @user.biography %></p>

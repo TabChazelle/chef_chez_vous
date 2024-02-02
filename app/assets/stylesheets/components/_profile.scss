@@ -4,10 +4,20 @@
   align-items: center; /* Centers content horizontally */
   text-align: justify; /* Justifies text */
   margin-top: 50px;
+
 }
 
 .biography {
   max-width: 600px; /* Limit the width of the biography */
+}
+
+.profile-pic-one {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  position:  center;
+  margin-left: 77px;
 }
 
 //  .profile-header {
@@ -52,15 +62,4 @@
 .edit-profile-button:hover {
   background-color: #e6e6e6 !important;
   /* Change to your desired hover background color */
-}
-
-
-.profile-pic-one {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  position: absolute;
-  top: 70px;
-  right: 100px;
 }
