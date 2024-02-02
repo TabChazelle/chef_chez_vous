@@ -23,7 +23,6 @@ User.create(
   chef: false,
   city: "Paris"
 )
-end
 
 25.times do |i|
   # Faker::Config.locale = 'it'
