@@ -9,15 +9,20 @@
         </div>
         <strong>Chef:</strong> <%= @booking.chef.name %><br>
         <strong>City:</strong> <%= @booking.chef.city %><br>
-        <strong>Dates:</strong> <%= @booking.start_date %> to <%= @booking.end_date %><br>
-        <strong>Price per day:</strong> <%= @booking.chef.price_per_day %><br>
+        <strong>Dates:</strong> <%= @booking.start_date.strftime("%-d %B %Y") %> to <%= @booking.end_date.strftime("%-d %B %Y") %><br>
+        <strong>Price per day:</strong> <%= @booking.chef.price_per_day %>€<br>
         <strong>Number of guests:</strong> <%= @booking.number_of_guests %><br>
         <strong>Special requests:</strong> <%= @booking.special_requests %><br>
         <strong>Address:</strong> <%= @booking.address %>
+        <br><br><br>
+        <% total_days = (@booking.end_date - @booking.start_date).to_i + 1 %>
+        <% total_cost = @booking.chef.price_per_day * total_days %>
+        <strong>Total cost:</strong> <%= total_cost %>€<br>
+
       </p>
     </div>
   <br>
 <p>Thank you for your booking! We will be in touch with you shortly.</p>
-<%= link_to 'Show My Bookings', bookings_path, class: 'btn btn-alert' %>
+<%= link_to 'Show My Bookings', bookings_path, class: 'bookings-button' %>
   </div>
 </div>
