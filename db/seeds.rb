@@ -27,6 +27,15 @@ User.destroy_all
   )
 end
 
+Chef.create(
+  name: "Raymond Blanc",
+  specialty: "French cuisines",
+  description: "Raymond Blanc is a French chef. He is one of Britain's most respected chefs. Blanc is the chef patron at Le Manoir aux Quat' Saisons, a hotel-restaurant in Great Milton, Oxfordshire, England. The restaurant has two Michelin stars and scored 9/10 in the Good Food Guide. He is entirely self-taught, but has himself taught or employed other chefs including Heston Blumenthal, John Burton",
+  user_id: User.order(Arel.sql('RANDOM()')).first.id,
+  price_per_day: 450.50,
+  city: "Paris"
+)
+
 25.times do
   Faker::Config.locale = 'it'
   Chef.create(
