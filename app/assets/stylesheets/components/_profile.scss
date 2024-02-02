@@ -7,9 +7,6 @@
 
 }
 
-.biography {
-  max-width: 600px; /* Limit the width of the biography */
-}
 
 .profile-pic-one {
   width: 80px;
@@ -17,7 +14,7 @@
   border-radius: 50%;
   object-fit: cover;
   position:  center;
-  margin-left: 77px;
+
 }
 
 //  .profile-header {
@@ -32,7 +29,7 @@
   display: flex;
   align-items: justify; /* Aligns items at the start of the cross axis */
   margin-top: 50px;
-  padding: 0 20px; /* Adjust padding as needed */
+
 }
 
 .profile-content {
@@ -62,4 +59,18 @@
 .edit-profile-button:hover {
   background-color: #e6e6e6 !important;
   /* Change to your desired hover background color */
+}
+
+.status-button {
+  margin-bottom: 5px;
+}
+
+.custom-element {
+  display: flex;
+  margin-left: 100px;
+}
+
+.custom-element-2 {
+  display: flex;
+  margin-top: 30px
 }

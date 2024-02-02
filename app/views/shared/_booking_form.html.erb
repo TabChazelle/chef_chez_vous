@@ -8,13 +8,12 @@
             <%= f.input :start_date, as: :string, input_html: { data: { controller: "flatpickr" }, class: "datepicker" } %>
             <%= f.input :end_date, as: :string, input_html: { data: { controller: "flatpickr" }, class: "datepicker" } %>
             <%= f.input :chef_id, as: :hidden, input_html: { value: @booking.chef_id } %>
-            <%= f.submit class: 'btn btn-flat' %>
+            <%= f.submit class: 'button' %> <%= link_to 'See My Bookings', bookings_path(@booking), class: 'button' %>
           <% end %>
+
+        </div> <!-- i know it looks like it doesn't belong here but it will break the footer to remove it -->
       </div>
     </div>
   </div>
-
-  <%= link_to 'Show My Bookings', bookings_path(@booking) %></div>
 </div>
-
 </div>
